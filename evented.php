@@ -67,7 +67,7 @@ class eventedAPI {
 	private $db;
 	
 	function __construct() {
-		$this->db = new MySQLi("localhost", "root", "root", "evented");
+		$this->db = new MySQLi("localhost", "yunnnyun_evented", "1q2w3e4r", "yunnnyun_evented");
 	}
 	
 	function __destruct() {
@@ -174,9 +174,19 @@ class eventedAPI {
         sendResponse(200, json_encode($result));
     }
     
+    
     function get_party() {
         
-        $stmt = $this->db->prepare("select * from Party");
+        $sqlStmt = "select * from Party";
+        
+        if(isset($_GET["p_type"])&&isset($_GET["p_location"])) {
+            $p_type = $_GET["p_type"];
+            $p_location = $_GET["p_location"];
+
+            $sqlStmt = "select * from Party where p_type = $p_type and p_location = '$p_location'";
+        }
+        
+        $stmt = $this->db->prepare($sqlStmt);
         $stmt->execute();
         $stmt->bind_result($p_id_result, $p_userID_result, $p_plannerID_result, $p_budget_result, $p_type_result, $p_people_result, $p_description_result, $p_location_result, $p_time_result, $p_status_result, $p_timestamp_result);
         while ($stmt->fetch()) {
