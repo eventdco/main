@@ -1,0 +1,18 @@
+.nav-user-account
+  @include transition(all .4s)
+  width: 50%
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 100%
+  z-index: 10
+  background-color: #333
+  .nav-main-active &
+    @include transform(translate(100%))
+.nav-main-active
+  .page
+    // margin-left: 25%
+    @include transform(translate(50%))
+
+
+

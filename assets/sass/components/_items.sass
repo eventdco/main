@@ -1,0 +1,36 @@
+.items
+  margin: 0
+  padding: 0
+  list-style: none
+  &.items-h
+    @extend %clearfix
+    li
+      margin-right: $spacing
+      float: left
+    &.items-pull-right
+      li
+        float: right
+  &.list-item
+    li
+      display: block
+      position: relative
+      margin: 0
+      img
+        max-width: 100%
+        border: 0
+      .text
+        @include background-image(linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 1.00)))
+        @include filter-gradient(rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 1.00), vertical)
+        display: block
+        height: 64px
+        width: 100%
+        position: absolute
+        bottom: 0
+        padding-top: 32px
+        padding-left: 24px
+        color: #fff
+        text-shadow: 1px 1px 1px #000
+
+.planner-list
+  li
+    margin-bottom: 2*$spacing
