@@ -67,7 +67,7 @@ class eventedAPI {
 	private $db;
 	
 	function __construct() {
-		$this->db = new MySQLi("localhost", "yunnnyun_evented", "1q2w3e4r", "yunnnyun_evented");
+		$this->db = new MySQLi("localhost", "root", "eventd", "eventd");
 	}
 	
 	function __destruct() {
